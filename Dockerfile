@@ -1,10 +1,9 @@
 FROM php:8.1-fpm
 
-RUN mkdir -p /var/www
 COPY . /var/www
 WORKDIR /var/www
 
-COPY ./docker/nginx/nginx.conf /etc/nginx/web.conf
+COPY ./docker/nginx/web.conf /etc/nginx/nginx.conf
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
