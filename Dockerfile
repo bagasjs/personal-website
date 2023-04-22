@@ -1,8 +1,5 @@
 FROM php:8.1-fpm
 
-COPY . /var/www
-WORKDIR /var/www
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
@@ -14,8 +11,6 @@ RUN apt-get update && apt-get install -y \
     unzip \
     nginx
 
-COPY ./docker/nginx/web.conf /etc/nginx/nginx.conf
-
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -24,6 +19,10 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY . /var/www
+COPY ./docker/nginx/web.conf /etc/nginx/nginx.conf
+WORKDIR /var/www
 
 RUN composer install
 RUN php artisan key:generate
