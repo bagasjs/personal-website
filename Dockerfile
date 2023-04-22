@@ -3,8 +3,6 @@ FROM php:8.1-fpm
 COPY . /var/www
 WORKDIR /var/www
 
-COPY ./docker/nginx/web.conf /etc/nginx/nginx.conf
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
@@ -15,6 +13,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     nginx
+
+COPY ./docker/nginx/web.conf /etc/nginx/nginx.conf
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
