@@ -27,4 +27,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN composer install
 RUN php artisan key:generate
-CMD init.sh
+CMD /bin/sh ./init.sh
