@@ -1,5 +1,6 @@
 FROM php:8.1-fpm
 
+RUN mkdir -p /var/www
 COPY . /var/www
 WORKDIR /var/www
 
