@@ -27,6 +27,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN composer install
 RUN php artisan key:generate
-RUN php artisan migrate:fresh
-
-CMD nginx
+CMD init.sh
