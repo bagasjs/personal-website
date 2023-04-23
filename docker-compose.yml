@@ -86,7 +86,7 @@ services:
     image: nginx:1.17-alpine
     restart: unless-stopped
     ports:
-      - 8000:80
+      - 8001:80
     volumes:
       - ./:/var/www
       - ./docker/nginx:/etc/nginx/conf.d
@@ -98,7 +98,7 @@ services:
       - "traefik.http.routers.${APP_SUBDOMAIN}.entrypoints=websecure"
       - "traefik.http.routers.${APP_SUBDOMAIN}.rule=Host(`${APP_SUBDOMAIN}.${APP_DOMAIN}`)"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.server.scheme=http"
-      - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.server.port=8000"
+      - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.server.port=8001"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.passhostheader=true"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.sticky=true"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.sticky.cookie.name=${APP_SUBDOMAIN}StickyCookie"
