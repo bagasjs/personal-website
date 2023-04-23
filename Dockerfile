@@ -28,4 +28,4 @@ WORKDIR /var/www
 
 USER $user
 
-# CMD "/bin/sh ./init.sh"
+CMD "/bin/sh ./init.sh"
