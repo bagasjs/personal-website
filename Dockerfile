@@ -29,5 +29,4 @@ WORKDIR /var/www
 
 USER $user
 
-RUN composer install
-RUN php artisan key:generate
+CMD [ "/bin/sh init.sh" ]
