@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    working_dir: /var/wwwa
+    working_dir: /var/www
     volumes:
       - ./:/var/www
     ports:
@@ -84,7 +84,7 @@ services:
       - "traefik.http.routers.${APP_SUBDOMAIN}.entrypoints=websecure"
       - "traefik.http.routers.${APP_SUBDOMAIN}.rule=Host(`${APP_SUBDOMAIN}.${APP_DOMAIN}`)"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.server.scheme=http"
-      - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.server.port=80"
+      - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.server.port=9000"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.passhostheader=true"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.sticky=true"
       - "traefik.http.services.${APP_SUBDOMAIN}.loadbalancer.sticky.cookie.name=${APP_SUBDOMAIN}StickyCookie"
