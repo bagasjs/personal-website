@@ -8,8 +8,10 @@ services:
       - MYSQL_DATABASE=${DB_DATABASE}
       - MYSQL_USER=${DB_USERNAME}
       - MYSQL_PASSWORD=${DB_PASSWORD}
+    ports:
+      - 3306:3306
     volumes:
-      - database:/var/lib/mysql
+      - database-data:/var/lib/mysql
     networks:
       - backend
     restart: unless-stopped
@@ -17,8 +19,13 @@ services:
   web:
     image: personal-web
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
+    working_dir: /var/wwwa
+    volumes:
+      - ./:/var/www
+    ports:
+      - 8000:8000
     environment:
       - APP_NAME=${APP_NAME}
       - APP_ENV=${APP_ENV}
@@ -69,8 +76,6 @@ services:
       - VITE_PUSHER_PORT=${VITE_PUSHER_PORT}
       - VITE_PUSHER_SCHEME=${VITE_PUSHER_SCHEME}
       - VITE_PUSHER_APP_CLUSTER=${VITE_PUSHER_APP_CLUSTER}
-    volumes:
-      - ./:/var/www
     networks:
       - backend
       - reverse-proxy
@@ -98,7 +103,7 @@ services:
   #     - backend
 
 volumes:
-  database:
+  database-data: ~
   storage:
   
 networks:
