@@ -28,4 +28,5 @@ WORKDIR /var/www
 
 USER $user
 
-CMD [ "composer install", "php artisan key:generate", "php artisan migrate:fresh" ]
+RUN composer install
+RUN php artisan key:generate
