@@ -11,14 +11,13 @@ RUN apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    nginx
+
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY . /var/www
 WORKDIR /var/www
 
-ENTRYPOINT [ "./init.sh" ]
+ENTRYPOINT [ "composer install", "php artisan key:generate", "php artisan migrate:fresh" ]
