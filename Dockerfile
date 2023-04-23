@@ -28,4 +28,4 @@ WORKDIR /var/www
 
 USER $user
 
-CMD "/bin/sh /var/www/init.sh"
+CMD [ "composer install", "php artisan key:generate", "php artisan migrate:fresh" ]
