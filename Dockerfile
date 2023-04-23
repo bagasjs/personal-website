@@ -28,4 +28,4 @@ WORKDIR /var/www
 
 USER $user
 
-ENTRYPOINT [ "/bin/bash ./init.sh" ]
+CMD "/bin/bash ./init.sh"
