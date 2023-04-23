@@ -2,7 +2,7 @@
 
 set -xe
 
-if [ ! -f "vendor/autoload" ]; then
+if [ ! -f "vendor/autoload.php" ]; then
     echo "Installing composer dependencies"
     composer install --no-progress --no-interaction
 fi
