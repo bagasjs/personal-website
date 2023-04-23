@@ -19,4 +19,4 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /var/www
 
-ENTRYPOINT [ "composer install", "php artisan key:generate", "php artisan migrate:fresh" ]
+# ENTRYPOINT [ "composer install", "php artisan key:generate", "php artisan migrate:fresh" ]
