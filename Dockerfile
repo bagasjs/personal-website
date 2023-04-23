@@ -24,6 +24,4 @@ COPY . /var/www
 COPY ./docker/nginx/web.conf /etc/nginx/nginx.conf
 WORKDIR /var/www
 
-RUN composer install
-RUN php artisan key:generate
-# CMD /bin/sh ./init.sh
+CMD /bin/sh ./init.sh
