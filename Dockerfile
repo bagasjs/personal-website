@@ -29,6 +29,8 @@ WORKDIR /var/www
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 RUN composer install
 
+USER $user
+
 CMD php-fpm
 
 # CMD /bin/sh init.sh
