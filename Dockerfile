@@ -30,6 +30,7 @@ USER $user
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+COPY --chown=www-data:www-data . /var/www
 WORKDIR /var/www
 RUN composer install
 
