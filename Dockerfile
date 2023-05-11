@@ -22,7 +22,7 @@ RUN chown -R $user /home/$user
 # ALL ABOVE SHOULD BE CACHED
 
 RUN mkdir -p /var/www
-COPY --chown=www-data:www-data . /var/www
+# COPY --chown=www-data:www-data . /var/www
 RUN chown -R www-data:www-data /var/www
 RUN chmod -R 774 /var/www
 
@@ -32,5 +32,6 @@ USER $user
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN composer install
 
 # CMD /bin/sh init.sh
