@@ -19,7 +19,12 @@ RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 RUN useradd -u $uid -G www-data $user
 
-COPY --chown=www-data:www-data . /var/www
+COPY --chown=$user:www-data . /var/www
+
+COPY --chown=$user:www-data . /var/www
+RUN chown -R $user:www-data /var/www/storage
+RUN chmod -R ug+w /var/www/storage
+
 WORKDIR /var/www
 
 # Install Composer
