@@ -34,4 +34,4 @@ COPY --chown=www-data:www-data . /var/www
 WORKDIR /var/www
 RUN composer install
 
-# CMD /bin/sh init.sh
+CMD /bin/sh init.sh
