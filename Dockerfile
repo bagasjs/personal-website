@@ -26,8 +26,6 @@ RUN mkdir -p /var/www
 RUN chown -R www-data:www-data /var/www
 RUN chmod -R 774 /var/www
 
-WORKDIR /var/www
-
 USER $user
 
 # Install Composer
