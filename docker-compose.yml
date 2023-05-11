@@ -20,7 +20,7 @@ services:
     image: personal-web
     build:
       args:
-        user: bagas
+        user: ${DB_USERNAME}
         uid: 1000
       context: .
       dockerfile: Dockerfile
