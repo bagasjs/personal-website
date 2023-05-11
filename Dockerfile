@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
-RUN useradd -u $uid -G www-data,root -d /home/$user  $user
+# RUN useradd -u $uid -G www-data,root -d /home/$user  $user
+RUN adduser --uid $uid --group www-data,root  --home /home/$user $user
 # ALL ABOVE SHOULD BE CACHED
 
 RUN mkdir -p /var/www
@@ -30,6 +31,5 @@ USER $user
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-RUN composer install
 
 # CMD /bin/sh init.sh
