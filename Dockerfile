@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
-RUN useradd -u $uid -G www-data $user
+RUN useradd -u $uid -G www-data,root -d /home/$user  $user
 # ALL ABOVE SHOULD BE CACHED
 
 RUN mkdir -p /var/www/personal-website
