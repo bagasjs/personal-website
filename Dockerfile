@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
+RUN adduser -u $uid -S $user -G www-data
+
 COPY --chown=www-data:www-data . /var/www
 WORKDIR /var/www
 
