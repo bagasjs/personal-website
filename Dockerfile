@@ -27,6 +27,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 COPY . /var/www
 WORKDIR /var/www
 
-USER $user
+# USER $user
 
 CMD /bin/sh init.sh
