@@ -17,12 +17,11 @@ RUN apt-get update && apt-get install -y \
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-RUN composer install
-
 COPY --chown=www-data:www-data . /var/www
 WORKDIR /var/www
 
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN composer install
 
 # CMD /bin/sh init.sh
