@@ -19,9 +19,9 @@ services:
   app:
     image: personal-web
     build:
-      args:
-        user: bagas
-        uid: 1000
+      # args:
+      #   user: bagas
+      #   uid: 1000
       context: .
       dockerfile: Dockerfile
     # working_dir: /var/www
