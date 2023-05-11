@@ -26,7 +26,7 @@ services:
       dockerfile: Dockerfile
     # working_dir: /var/www
     volumes:
-      - ./:/var/www/personal-website
+      - ./:/var/www
     # ports:
     #   - 3000:3000
     environment:

@@ -19,12 +19,12 @@ RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 RUN useradd -u $uid -G www-data,root -d /home/$user  $user
 # ALL ABOVE SHOULD BE CACHED
 
-RUN mkdir -p /var/www/personal-website
-COPY --chown=www-data:www-data . /var/www/personal-website
-RUN chown -R www-data:www-data /var/www/personal-website
-RUN chmod -R 774 /var/www/personal-website
+RUN mkdir -p /var/www
+COPY --chown=www-data:www-data . /var/www
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 774 /var/www
 
-WORKDIR /var/www/personal-website
+WORKDIR /var/www
 
 USER $user
 
