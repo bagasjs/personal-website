@@ -7,8 +7,6 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
-USER $user
-
 COPY --chown=www-data:www-data . /var/www
 WORKDIR /var/www
 
@@ -47,5 +45,7 @@ RUN docker-php-ext-enable pdo_mysql
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+USER $user
 
 CMD /bin/sh init.sh
