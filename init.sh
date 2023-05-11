@@ -4,7 +4,7 @@ set -xe
 
 if [ ! -f "vendor/autoload.php" ]; then
     echo "Installing composer dependencies"
-    sudo composer install --no-interaction
+    composer install --no-interaction
 fi
 
 if [ ! -f ".env" ]; then
