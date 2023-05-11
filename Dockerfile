@@ -19,18 +19,16 @@ RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 RUN useradd -u $uid -G www-data $user
 
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN composer install
+
 COPY --chown=$user:www-data . /var/www
 RUN chown -R $user:www-data /var/www/storage
 RUN chmod -R ug+w /var/www/storage
 
 WORKDIR /var/www
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-RUN composer install
-
 USER $user
 
-CMD php-fpm
-
-# CMD /bin/sh init.sh
+CMD /bin/sh init.sh
