@@ -31,4 +31,4 @@ USER $user
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 RUN composer install
 
-CMD /bin/sh init.sh
+# CMD /bin/sh init.sh
