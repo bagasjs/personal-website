@@ -30,34 +30,22 @@
             </div>
         </div>
     </section>
+
     <section id="feeds" class="p-4 mb-3 flex flex-wrap flex-row items-center justify-around">
-        <a href="" class="max-w-xxs w-full">
+        @foreach($posts as $post)
+        <a href="/posts/{{ $post->slug }}" class="max-w-xxs w-full">
             <img class="mb-1 w-full" src="/static/img/na.png" alt="Post Image">
-            <h1 class="font-bold text-xl">Post Title Here</h1>
-            <p class="font-light text-md truncate md:whitespace-normal mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, deserunt tempora distinctio molestiae nulla incidunt unde magni animi consequatur, quidem mollitia sint nobis veritatis ab!</p>
+            <h1 class="font-bold text-xl">{{ $post->title }}</h1>
+            <p class="font-light text-md truncate md:whitespace-normal mb-3">{{ $post->excerpt }}</p>
         </a>
-        <a href="" class="max-w-xxs w-full">
-            <img class="mb-1 w-full" src="/static/img/na.png" alt="Post Image">
-            <h1 class="font-bold text-xl">Post Title Here</h1>
-            <p class="font-light text-md truncate md:whitespace-normal mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, deserunt tempora distinctio molestiae nulla incidunt unde magni animi consequatur, quidem mollitia sint nobis veritatis ab!</p>
-        </a>
-        <a href="" class="max-w-xxs w-full">
-            <img class="mb-1 w-full" src="/static/img/na.png" alt="Post Image">
-            <h1 class="font-bold text-xl">Post Title Here</h1>
-            <p class="font-light text-md truncate md:whitespace-normal mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, deserunt tempora distinctio molestiae nulla incidunt unde magni animi consequatur, quidem mollitia sint nobis veritatis ab!</p>
-        </a>
-        <a href="" class="max-w-xxs w-full">
-            <img class="mb-1 w-full" src="/static/img/na.png" alt="Post Image">
-            <h1 class="font-bold text-xl">Post Title Here</h1>
-            <p class="font-light text-md truncate md:whitespace-normal mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, deserunt tempora distinctio molestiae nulla incidunt unde magni animi consequatur, quidem mollitia sint nobis veritatis ab!</p>
-        </a>
+        @endforeach
     </section>
 
     <section id="favourite-anime" class="p-4 bg-gray-900 text-white">
         <h1 class="text-xl font-extrabold underline mb-3">Favourite Anime</h1>
 
-        <a href="" class="p-4 w-full flex flex-col md:flex-row">
-            <img class="md:max-w-xs w-full" src="/static/img/na.png" alt="Post Image">
+        <a href="https://myanimelist.net/anime/30831/Kono_Subarashii_Sekai_ni_Shukufuku_wo" class="p-4 w-full flex flex-col md:flex-row">
+            <img class="md:max-w-xs w-full" src="https://cdn.myanimelist.net/images/anime/8/77831.jpg" alt="Post Image">
             <div class="md:ml-3 flex flex-col justify-center">
                 <h1 class="font-bold text-xl">Konosuba</h1>
                 <p class="font-light text-md md:w-1/2">Darkness blacker than black and darker than dark, I beseech thee, combine with my deep crimson. The time of awakening cometh. Justice, fallen upon the infallible boundary, appear now as an intangible distortions! Explosion!!!</p>
@@ -65,18 +53,18 @@
         </a>
 
         <div class="p-4 mb-3 flex flex-wrap justify-between">
-            <a href="" class="md:max-w-xs w-full">
-                <img class="mb-1 w-full" src="/static/img/na.png" alt="Post Image">
+            <a href="https://myanimelist.net/anime/918/Gintama" class="md:max-w-xs w-full">
+                <img class="mb-1 w-full" src="https://cdn.myanimelist.net/images/anime/10/73274.jpg" alt="Post Image">
                 <h1 class="font-bold text-xl">Gintama</h1>
                 <p class="font-light text-md mb-6">Life is like a tree, you can learn a lot while climbing it, like that I'm sweating a lot.</p>
             </a>
-            <a href="" class="md:max-w-xs w-full">
-                <img class="mb-1 w-full" src="/static/img/na.png" alt="Post Image">
+            <a href="https://myanimelist.net/anime/7791/K-On" class="md:max-w-xs w-full">
+                <img class="mb-1 w-full" src="https://cdn.myanimelist.net/images/anime/12/76121.jpg" alt="Post Image">
                 <h1 class="font-bold text-xl">K-On</h1>
                 <p class="font-light text-md mb-6">Good story, Love the music, and of course love the characters (especially azunyan).</p>
             </a>
-            <a href="" class="md:max-w-xs w-full">
-                <img class="mb-1 w-full" src="/static/img/na.png" alt="Post Image">
+            <a href="https://myanimelist.net/anime/34618/Blend_S" class="md:max-w-xs w-full">
+                <img class="mb-1 w-full" src="https://cdn.myanimelist.net/images/anime/6/88286.jpg" alt="Post Image">
                 <h1 class="font-bold text-xl">Blend S</h1>
                 <p class="font-light text-md mb-6">Smile, sweet, sister, sadistic, surprise, Snoop Doggg</p>
             </a>

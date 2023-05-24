@@ -15,7 +15,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::view("/", "index")->name("home")->name("index");
+Route::view("/", "index", [ "posts" => \App\Models\Post::latest("uploaded_at")->get()->take(4), ])->name("home")->name("index");
 Route::redirect("/home", "/");
 
 Route::prefix("/auth")->controller(AuthController::class)->group(function(){
