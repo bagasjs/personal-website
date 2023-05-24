@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -15,7 +16,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::view("/", "index", [ "posts" => \App\Models\Post::latest("uploaded_at")->get()->take(4), ])->name("home")->name("index");
+Route::get("/", [HomeController::class, "index"])->name("home")->name("index");
 Route::redirect("/home", "/");
 
 Route::prefix("/auth")->controller(AuthController::class)->group(function(){
